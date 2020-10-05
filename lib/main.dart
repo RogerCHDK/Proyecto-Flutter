@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'platzy_trips_cupertino.dart';
 import 'package:generic_bloc_provider/generic_bloc_provider.dart';
 import 'package:programacion_avanzada/User/bloc/bloc_user.dart';
+import 'package:programacion_avanzada/User/ui/screens/sig_in_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,7 +15,8 @@ class MyApp extends StatelessWidget {
     return BlocProvider(
         child: MaterialApp(
           title: 'Flutter Demo',
-          home: PlatzyTripsCupertino(),
+          //home: PlatzyTripsCupertino(),
+          home: SingInScreen(),
         ),
         bloc: UserBloc());
   }

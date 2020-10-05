@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "144010077718",
+    "firebase_url": "https://viajesmovil-2b173.firebaseio.com",
+    "project_id": "viajesmovil-2b173",
+    "storage_bucket": "viajesmovil-2b173.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:144010077718:android:8308406c13282abdb77737",
+        "android_client_info": {
+          "package_name": "com.example.programacion_avanzada"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "144010077718-mn732mq0bvr1kn5gml56jbntdocakvr7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.programacion_avanzada",
+            "certificate_hash": "5f7671e13c097de8b7bf9290855c1318cb7630b1"
+          }
+        },
+        {
+          "client_id": "144010077718-iqf1lmfp2etpbpned3gpi74bi19ko7br.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBeufoNF-nNctykFu9n_26VLLlhS2Pd_jM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "144010077718-iqf1lmfp2etpbpned3gpi74bi19ko7br.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
