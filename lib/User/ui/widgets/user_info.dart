@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:programacion_avanzada/User/model/user.dart';
 
 class UserInfo extends StatelessWidget {
-  String imgProfile;
-  String name;
-  String email;
+  User user; //declaramos una variable del tipo de nuestro modelo
 
-  UserInfo(this.imgProfile, this.name, this.email);
+  UserInfo(@required this.user); //se lo pasamos como paramatro al constructor
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +17,10 @@ class UserInfo extends StatelessWidget {
               color: Colors.white, width: 2.0, style: BorderStyle.solid),
           shape: BoxShape.circle,
           image: DecorationImage(
-              fit: BoxFit.cover, image: AssetImage(imgProfile))),
+              fit: BoxFit.cover,
+              //image: AssetImage(user.photoURL)
+              image: NetworkImage(user.photoURL) //traer una foto de internet
+              )),
     );
 
     final userInfo = Column(
@@ -26,14 +28,14 @@ class UserInfo extends StatelessWidget {
       children: <Widget>[
         Container(
             margin: EdgeInsets.only(bottom: 5.0),
-            child: Text(name,
+            child: Text(user.name,
                 style: TextStyle(
                   fontSize: 18.0,
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
                   fontFamily: 'Lato',
                 ))),
-        Text(email,
+        Text(user.email,
             style: TextStyle(
                 fontSize: 15.0, color: Colors.white30, fontFamily: 'Lato')),
       ],

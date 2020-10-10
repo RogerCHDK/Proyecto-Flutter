@@ -4,7 +4,7 @@ import 'package:programacion_avanzada/Place/ui/widgets/review_list.dart';
 import 'package:programacion_avanzada/Place/ui/screens/header_appbar.dart';
 
 class HomeTrips extends StatelessWidget {
-  String namePlace = "Apex Legends";
+  String namePlace = "Valle de Toluca";
   String descriptionPlace =
       "Es un blattle royal gratis lanzado en 2019 por al compañia Respawns";
   @override

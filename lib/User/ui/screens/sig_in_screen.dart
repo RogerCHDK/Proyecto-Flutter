@@ -61,6 +61,7 @@ class _SignInScreen extends State<SingInScreen> {
               ButtonGreen(
                 text: "Login con Gmail",
                 onPressed: () {
+                  userBloc.signOut();
                   userBloc.signIn().then((FirebaseUser user) => print(
                       "El usuario es ${user.displayName}")); //el then es un callback, lo que se encuentra dentro es una funcion anonima
                 },
