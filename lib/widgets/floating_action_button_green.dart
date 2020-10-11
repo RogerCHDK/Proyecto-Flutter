@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 
 class FloatingActionButtonGreen extends StatefulWidget {
+  final IconData iconData;
+  final VoidCallback onPressed;
+
+  FloatingActionButtonGreen(
+      {Key key, @required this.iconData, @required this.onPressed});
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
@@ -19,11 +24,12 @@ class _FloatingActionButtonGreen extends State<FloatingActionButtonGreen> {
       backgroundColor: Color(0xFF11DA53),
       mini: true,
       tooltip: "Fav", //cuando alguien se posiciona sobre el aparece el mensaje
-      onPressed: onPressedFav,
+      onPressed: widget.onPressed,
       child: Icon(
         //mi_metodo(),
         this.bandera ? Icons.favorite : Icons.favorite_border,
       ),
+      heroTag: null,
     );
   }
 

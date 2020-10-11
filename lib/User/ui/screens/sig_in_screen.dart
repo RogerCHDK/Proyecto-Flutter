@@ -18,11 +18,13 @@ class SingInScreen extends StatefulWidget {
 
 class _SignInScreen extends State<SingInScreen> {
   UserBloc userBloc;
+  double screenWidht; //le declaro de forma general
 
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     //throw UnimplementedError();
+    screenWidht = MediaQuery.of(context).size.width; //el metodo build la altera
     userBloc = BlocProvider.of(context);
     return _handleCurrentSesion();
   }
@@ -46,18 +48,26 @@ class _SignInScreen extends State<SingInScreen> {
       body: Stack(
         alignment: Alignment.center,
         children: [
-          GradientBack("",
-              null), //al pasarle el heigth como null se pone en automatico en fullscreen
+          GradientBack(
+              height:
+                  null), //al pasarle el heigth como null se pone en automatico en fullscreen
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
-                "Bienvenido \n Esta es una aplicacion de viajes",
-                style: TextStyle(
-                    fontSize: 37.0,
-                    fontFamily: "Lato",
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold),
+              Flexible(
+                //Esto no permitira que haya desbordmiento de texto
+                child: Container(
+                  width:
+                      screenWidht, //Aqui es donde se evita el desbordamiento haciendo que se ajuste a la pantalla
+                  child: Text(
+                    "Bienvenido \n Esta es una aplicacion de viajes",
+                    style: TextStyle(
+                        fontSize: 37.0,
+                        fontFamily: "Lato",
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
               ),
               ButtonGreen(
                 text: "Login con Gmail",

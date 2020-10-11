@@ -10,6 +10,10 @@ class CardImageList extends StatelessWidget {
     // TODO: implement build
     //throw UnimplementedError();
 
+    double width = 300.0;
+    double height = 350.0;
+    double left = 20.0;
+
     return Container(
       height: 350.0,
       child: ListView(
@@ -17,9 +21,27 @@ class CardImageList extends StatelessWidget {
         scrollDirection:
             Axis.horizontal, //hago que el scroll se haga de manera horizontal
         children: <Widget>[
-          CardImage(imagen1),
-          CardImage(imagen2),
-          CardImage(imagen3),
+          CardImageWithFabIcon(
+            pathImage: imagen1,
+            iconData: Icons.favorite_border,
+            width: width,
+            height: height,
+            left: left,
+          ),
+          CardImageWithFabIcon(
+            pathImage: imagen2,
+            iconData: Icons.favorite_border,
+            width: width,
+            height: height,
+            left: left,
+          ),
+          CardImageWithFabIcon(
+            pathImage: imagen3,
+            iconData: Icons.favorite_border,
+            width: width,
+            height: height,
+            left: left,
+          ),
         ],
       ),
     );
