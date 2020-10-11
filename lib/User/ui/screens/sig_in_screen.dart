@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:programacion_avanzada/User/model/user.dart';
 import 'package:programacion_avanzada/widgets/gradient_back.dart';
 import 'package:programacion_avanzada/widgets/button_green.dart';
 import 'package:programacion_avanzada/User/bloc/bloc_user.dart';
@@ -62,8 +63,14 @@ class _SignInScreen extends State<SingInScreen> {
                 text: "Login con Gmail",
                 onPressed: () {
                   userBloc.signOut();
-                  userBloc.signIn().then((FirebaseUser user) => print(
-                      "El usuario es ${user.displayName}")); //el then es un callback, lo que se encuentra dentro es una funcion anonima
+                  userBloc.signIn().then((FirebaseUser user) {
+                    //este es el objeto que uso abajo para el procedimiento
+                    userBloc.updateDataUser(User(
+                        uid: user.uid,
+                        name: user.displayName,
+                        email: user.email,
+                        photoURL: user.photoUrl));
+                  }); //el then es un callback, lo que se encuentra dentro es una funcion anonima
                 },
                 width: 300,
                 height: 50.0,
