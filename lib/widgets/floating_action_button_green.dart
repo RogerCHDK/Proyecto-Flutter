@@ -25,10 +25,7 @@ class _FloatingActionButtonGreen extends State<FloatingActionButtonGreen> {
       mini: true,
       tooltip: "Fav", //cuando alguien se posiciona sobre el aparece el mensaje
       onPressed: widget.onPressed,
-      child: Icon(
-        //mi_metodo(),
-        this.bandera ? Icons.favorite : Icons.favorite_border,
-      ),
+      child: Icon(widget.iconData),
       heroTag: null,
     );
   }

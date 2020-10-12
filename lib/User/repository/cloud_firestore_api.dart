@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:programacion_avanzada/Place/model/place.dart';
 import 'package:programacion_avanzada/User/model/user.dart';
+import 'package:programacion_avanzada/User/ui/widgets/profile_place.dart';
 
 class CloudFirestoreAPI {
   final String USERS = "users";
@@ -31,9 +32,23 @@ class CloudFirestoreAPI {
         'name': place.name,
         'description': place.description,
         'likes': place.likes,
-        'userOwner': "${USERS}/${user.uid}", //reference
+        //'userOwner': "${USERS}/${user.uid}", //reference
         'pais': place.pais
       });
     });
+  }
+
+  List<ProfilePlace> buildPlaces(List<DocumentSnapshot> placesListSnapshot) {
+    List<ProfilePlace> profilePlaces = List<ProfilePlace>();
+    placesListSnapshot.forEach((p) {
+      //aqui es donde lleno el arreglo para poder mostrar todos los objetos
+
+      profilePlaces.add(ProfilePlace(Place(
+          name: p.data['name'],
+          description: p.data['description'],
+          pais: p.data['pais'])));
+    });
+
+    return profilePlaces;
   }
 }
