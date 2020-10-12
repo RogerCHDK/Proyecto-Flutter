@@ -1,7 +1,11 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:generic_bloc_provider/generic_bloc_provider.dart';
+import 'package:programacion_avanzada/Place/model/place.dart';
 import 'package:programacion_avanzada/Place/ui/widgets/card_image.dart';
 import 'package:programacion_avanzada/Place/ui/widgets/title_input_location.dart';
+import 'package:programacion_avanzada/User/bloc/bloc_user.dart';
+import 'package:programacion_avanzada/widgets/button_purple.dart';
 import 'package:programacion_avanzada/widgets/gradient_back.dart';
 import 'package:programacion_avanzada/widgets/text_input.dart';
 import 'package:programacion_avanzada/widgets/title_header.dart';
@@ -21,8 +25,10 @@ class _AddPlaceScreen extends State<AddPlaceScreen> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
+    UserBloc userBloc = BlocProvider.of<UserBloc>(context);
     final _controllerTitlePlace = TextEditingController();
     final _controllerDescriptionPlace = TextEditingController();
+    final _controllerPais = TextEditingController();
 
     return Scaffold(
       body: Stack(
@@ -93,6 +99,25 @@ class _AddPlaceScreen extends State<AddPlaceScreen> {
                   child: TextInputLocation(
                     hintText: "Agregar locacion",
                     iconData: Icons.location_on,
+                    controller: _controllerPais,
+                  ),
+                ),
+                Container(
+                  width: 70.0,
+                  child: ButtonPurple(
+                    buttonText: "Agregar lugar",
+                    onPressed: () {
+                      userBloc
+                          .updatePlaceData(Place(
+                              name: _controllerTitlePlace.text,
+                              description: _controllerDescriptionPlace.text,
+                              likes: 0,
+                              pais: _controllerPais.text))
+                          .whenComplete(() {
+                        print("Termino");
+                        Navigator.pop(context);
+                      });
+                    },
                   ),
                 )
               ],

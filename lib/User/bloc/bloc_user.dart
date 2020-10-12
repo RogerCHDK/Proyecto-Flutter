@@ -1,4 +1,5 @@
 import 'package:generic_bloc_provider/generic_bloc_provider.dart';
+import 'package:programacion_avanzada/Place/model/place.dart';
 import 'package:programacion_avanzada/User/model/user.dart';
 import 'package:programacion_avanzada/User/repository/auth_repository.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -20,6 +21,9 @@ class UserBloc extends Bloc {
   final _cloudFirestoreRepository = CloudFirestoreRepository();
   void updateDataUser(User user) =>
       _cloudFirestoreRepository.updateUserDataFirestore(user);
+
+  Future<void> updatePlaceData(Place place) =>
+      _cloudFirestoreRepository.updatePlaceData(place);
 
   signOut() {
     _auth_repository.singOut();
